@@ -1,0 +1,31 @@
+# Build outputs
+bin/
+obj/
+
+# ASP.NET static files
+wwwroot/
+
+# Visual Studio user-specific files
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider / JetBrains IDEs
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Other common temp files
+*.tmp
+*.bak
+*.swp
+
+# Node.js (if used for frontend assets)
+node_modules/
