@@ -1,8 +1,36 @@
-﻿@{
+﻿@model IEnumerable<BloggApp.Models.Article>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Welcome to our Blog</h1>
+    <p>Read the latest articles from our contributors.</p>
+</div>
+
+<div class="row">
+    @foreach (var article in Model)
+    {
+        <div class="col-md-12 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">@article.Title</h2>
+                    <h6 class="card-subtitle mb-2 text-muted">@article.ContributorUsername, @article.CreatDate.ToString("MMMM dd, yyyy")</h6>
+                    <p class="card-text">
+                        @if (article.Body.Length > 100)
+                        {
+                            @article.Body.Substring(0, 100)
+                            <span>...</span>
+                            <a asp-controller="Home" asp-action="Article" asp-route-id="@article.ArticleId">more...</a>
+                        }
+                        else
+                        {
+                            @article.Body
+                        }
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
 </div>
